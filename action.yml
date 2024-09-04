@@ -17,6 +17,8 @@ inputs:
 outputs:
   num-issues:
     description: When -D warnings is not passed and you want to still know how many issues clippy has found
+  short-summary:
+    description: Text description of result
 
 runs:
   using: 'node20'

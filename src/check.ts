@@ -112,11 +112,14 @@ export class CheckRunner {
     this.addAnnotation(contents);
   }
 
-  public async addSummary(context: SummaryContext): Promise<void> {
-    core.info(`Clippy results: \
-${this._stats.ice} ICE, ${this._stats.error} errors, \
+  public getShortSummary(): string {
+    return `${this._stats.ice} ICE, ${this._stats.error} errors, \
 ${this._stats.warning} warnings, ${this._stats.note} notes, \
-${this._stats.help} help`);
+${this._stats.help} help`
+  }
+
+  public async addSummary(context: SummaryContext): Promise<void> {
+    core.info(`Clippy results: ${this.getShortSummary()}`);
 
     // Add all the annotations now. It is limited to 10, but it's better than nothing.
     // All annotations will also be included in the summary, below.
