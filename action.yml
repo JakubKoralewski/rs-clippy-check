@@ -14,6 +14,10 @@ inputs:
   working-directory:
     description: Directory where to perform cargo clippy command
     required: false
+outputs:
+  num-issues:
+    description: When -D warnings is not passed and you want to still know how many issues clippy has found
+
 runs:
   using: 'node20'
   main: 'dist/index.js'

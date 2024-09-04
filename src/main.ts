@@ -78,6 +78,8 @@ export async function run(actionInput: input.Input): Promise<void> {
     cargo: cargoVersion,
     clippy: clippyVersion,
   });
+  let stats = runner.getStats();
+  core.setOutput(`num-issues`, stats.ice + stats.error + stats.warning + stats.note + stats.help);
 
   if (clippyExitCode !== 0) {
     throw new Error(`Clippy has exited with exit code ${clippyExitCode}`);

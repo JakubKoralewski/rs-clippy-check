@@ -66,6 +66,10 @@ export class CheckRunner {
     };
   }
 
+  public getStats(): Stats {
+    return this._stats;
+  }
+
   public tryPush(line: string): void {
     let contents: CargoMessage;
     try {
